@@ -39,6 +39,10 @@
   display: flex;
 }
 
+.d-flex div {
+  margin: 10px 5px;
+}
+
 .space-btw {
   justify-content: space-between;
 }
@@ -51,10 +55,8 @@
   flex-direction: column;
 }
 .input {
-  margin: 10px 140px 0px 140px;
   border-radius: 5px;
   border: 2px solid black;
-  padding: 5px;
 }
 .btnStyle {
   margin: 16px 170px 30px 163px;

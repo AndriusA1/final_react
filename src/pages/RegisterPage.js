@@ -16,67 +16,88 @@ const RegisterPage = () => {
 
   const [error, setError] = useState(null);
 
-  const validateUser = (user) => {
-    return String(user).toLowerCase();
-  };
-
   function registerUser() {
-    let invalid = false;
-
     const user = {
       user: userRef.current.value,
       passOne: passOneRef.current.value,
       passTwo: passTwoRef.current.value,
+      city: city.current.value,
+      gender: gender.current.value,
+      yearsOld: yearsOld.current.value
     };
 
-    if (!validateUser(user.user)) invalid = "incorrect user entered";
-    if (user.passOne.length < 5 || user.passOne.length > 20)
-      invalid = "incorrect password entered";
-    if (user.passOne !== user.passTwo) invalid = "both passwords should match";
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
+    };
 
-    if (invalid) return setError(invalid);
+    fetch('http://localhost:4001/createUser', requestOptions)
+    .then((res) => res.json())
+    .then((data) => {
+       if (data.errors) {
+        return setError(data.errors.join(", "));
+       }
 
-    dis(addUser(user));
-    nav("/");
+       nav("/login?after_registration=1");
+    })
+    .catch((err) => {
+      return setError("Error. Please try again.");
+    });
   }
 
   return (
     <div className="d-flex flex-column">
+      {error && <h3>{error}</h3>}
+      <div>
       <input className="input" ref={userRef} type="text" placeholder="username" />
-
+      </div>
+      
+      <div>
       <input
         className="input"
         ref={passOneRef}
-        type="text"
+        type="password"
         placeholder="password one"
       />
+      </div>
+
+      <div>
       <input
         className="input"
         ref={passTwoRef}
-        type="text"
+        type="password"
         placeholder="password two"
       />
+      </div>
+
+      <div>
        <input
         className="input"
         ref={city}
         type="text"
         placeholder="city"
       />
+      </div>
+
+      <div>
        <input
         className="input"
         ref={gender}
         type="text"
         placeholder="gender"
       />
+      </div>
+
+      <div>
        <input
         className="input"
         ref={yearsOld}
-        type="text"
+        type="number"
         placeholder="years old"
       />
+      </div>
       
-
-      {error && <h3>{error}</h3>}
       <button className="btnStyle" onClick={registerUser}>
         Register
       </button>
