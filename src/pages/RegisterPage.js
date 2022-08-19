@@ -7,7 +7,9 @@ const RegisterPage = () => {
   const userRef = useRef();
   const passOneRef = useRef();
   const passTwoRef = useRef();
-  const roleRef = useRef();
+  const city = useRef();
+  const gender = useRef();
+  const yearsOld = useRef();
 
   const nav = useNavigate();
   const dis = useDispatch();
@@ -28,7 +30,7 @@ const RegisterPage = () => {
     };
 
     if (!validateUser(user.user)) invalid = "incorrect user entered";
-    if (user.passOne.length < 4 || user.passOne.length > 20)
+    if (user.passOne.length < 5 || user.passOne.length > 20)
       invalid = "incorrect password entered";
     if (user.passOne !== user.passTwo) invalid = "both passwords should match";
 
@@ -40,30 +42,39 @@ const RegisterPage = () => {
 
   return (
     <div className="d-flex flex-column">
-      <input className="input" ref={userRef} type="text" placeholder="user" />
+      <input className="input" ref={userRef} type="text" placeholder="username" />
 
       <input
         className="input"
         ref={passOneRef}
         type="text"
-        placeholder="password"
+        placeholder="password one"
       />
       <input
         className="input"
         ref={passTwoRef}
         type="text"
-        placeholder="confirm password"
+        placeholder="password two"
       />
-      <form>
-        <input
-          type="checkbox"
-          ref={roleRef}
-          id="admin"
-          name="admin"
-          value="admin"
-        />
-        <label for="admin"> tick for the role of admin</label>
-      </form>
+       <input
+        className="input"
+        ref={city}
+        type="text"
+        placeholder="city"
+      />
+       <input
+        className="input"
+        ref={gender}
+        type="text"
+        placeholder="gender"
+      />
+       <input
+        className="input"
+        ref={yearsOld}
+        type="text"
+        placeholder="years old"
+      />
+      
 
       {error && <h3>{error}</h3>}
       <button className="btnStyle" onClick={registerUser}>

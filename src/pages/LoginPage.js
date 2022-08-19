@@ -31,7 +31,7 @@ const LoginPage = () => {
 
   return (
     <div className="d-flex flex-column">
-      <input className="input" ref={userRef} type="text" placeholder="user" />
+      <input className="input" ref={userRef} type="text" placeholder="username" />
       <input
         className="input"
         ref={passRef}
@@ -39,6 +39,16 @@ const LoginPage = () => {
         placeholder="password"
       />
       {error && <h3>{error}</h3>}
+      <form>
+        <input
+          type="checkbox"
+          
+          id="admin"
+          name="admin"
+          value="admin"
+        />
+        <label for="admin"> stay logged in</label>
+      </form>
       <button className="btnStyle" onClick={loginUser}>
         Login
       </button>
