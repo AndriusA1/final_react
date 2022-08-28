@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addUser } from "../features/user";
 import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
@@ -11,7 +10,7 @@ const RegisterPage = () => {
   const gender = useRef();
   const yearsOld = useRef();
 
-  const nav = useNavigate();
+  const navigate = useNavigate();
   const dis = useDispatch();
 
   const [error, setError] = useState(null);
@@ -39,7 +38,7 @@ const RegisterPage = () => {
         return setError(data.errors.join(", "));
        }
 
-       nav("/login?after_registration=1");
+       navigate("/own");
     })
     .catch((err) => {
       return setError("Error. Please try again.");

@@ -93,6 +93,23 @@
 .m-10 {
   margin: 10px;
 }
+.m-10Input{
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+.m-50{
+  margin:50px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+.border{
+  border: 0.5px solid black;
+  border-radius: 5px;
+  margin:5px;
+  padding:20px
+
+}
 
 .toolbar {
   padding: 25px;

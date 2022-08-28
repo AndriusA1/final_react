@@ -19,25 +19,30 @@ const LoginPage = () => {
       password: passRef.current.value,
     };
 
-    const userLoggedIn = allUsers.find(
-      (x) => x.user === user.user && x.password === user.password
-    );
-    if (!userLoggedIn) return setError("incorrect, please try again");
+    // const userLoggedIn = allUsers.find(
+    //   (x) => x.user === user.user && x.password === user.password
+    // );
+    // if (!userLoggedIn) return setError("incorrect, please try again");
 
-    dis(setCurrentUser(userLoggedIn));
+    // dis(setCurrentUser(userLoggedIn));
 
-    nav("/profile");
+    nav("/own");
   }
 
   return (
     <div className="d-flex flex-column">
+      <div>
       <input className="input" ref={userRef} type="text" placeholder="username" />
+      </div>
+      <div>
       <input
         className="input"
         ref={passRef}
         type="text"
         placeholder="password"
       />
+      </div>
+     
       {error && <h3>{error}</h3>}
       <form>
         <input

@@ -19,14 +19,13 @@ const Toolbar = () => {
 
       {!currentUser ? (
         <div>
-          <Link to="/">Login</Link>
+          <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
         </div>
       ) : (
         <div>
           <Link to="/profile">Profile</Link>
-          <Link to="/AllUsers">All Users</Link>
-          <Link to="/Conversation">Conversation</Link>
+          
           <button className="aa" onClick={logout}>
             Logout
           </button>

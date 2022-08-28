@@ -1,7 +1,13 @@
 import React from "react";
 
+
+
 const HistoryLikesDislikesPage = () => {
-    return <h2>that's history of likes/dislikes page</h2>
+    return (<div>
+        
+        <h4>people I liked ()</h4>
+        <h4>people who liked me ()</h4>
+    </div>)
     
 }
 export default HistoryLikesDislikesPage;

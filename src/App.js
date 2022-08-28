@@ -3,6 +3,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProfilePage from "./pages/ProfilePage";
 import FilterPage from "./pages/FilterPage"
+import OwnProfilePage from "./pages/OwnProfilePage";
 import LikesDislikesPage from "./pages/LikesDislikesPage";
 import HistoryLikesDislikesPage from "./pages/HistoryLikesDislikes";
 
@@ -18,10 +19,11 @@ function App() {
       <Toolbar />
 
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/filter" element={<FilterPage />} />
+          <Route path="/own" element={<OwnProfilePage />} />
           <Route path="/like" element={<LikesDislikesPage />} />
           <Route path="/history" element={<HistoryLikesDislikesPage />} />
           
